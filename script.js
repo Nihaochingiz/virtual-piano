@@ -22,7 +22,7 @@ document.addEventListener('keydown', e => {
 
 
 	if (PianoKeyIndex > -1) playNote(pianoKeys [PianoKeyIndex ])
-		if (PianoKeyIndexSharp > -1) playNote(pianoKeysSharp [PianoKeyIndexSharp ])
+	if (PianoKeyIndexSharp > -1) playNote(pianoKeysSharp [PianoKeyIndexSharp ])
 })
 
 
@@ -31,4 +31,33 @@ document.addEventListener('keydown', e => {
  	noteAudio.currentTime = 0
  	noteAudio.play()
  	key.classList.add('active')
+ }
+
+
+
+ document.querySelector('.fullscreen').addEventListener('click', check);
+ document.querySelector('.fullscreen').addEventListener('click', toggleScreen);
+
+
+ function check() {
+ 	console.log('fullscreenEnabled: ');
+ 	console.log(document.fullscreenEnabled);
+ 	console.log('fullscreenElement: ');
+ 	console.dir(document.fullscreenElement);
+ }
+
+
+ function toggleScreen () {
+ 	if (document.fullscreenElement == null) {
+ 		document.documentElement.requestFullscreen();
+ 	}
+ 	else {
+
+ 		if (document.fullscreenEnabled) {
+
+ 			document.exitFullscreen();
+
+ 		}
+
+ 	}
  }
